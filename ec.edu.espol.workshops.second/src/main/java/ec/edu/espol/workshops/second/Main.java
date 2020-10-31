@@ -1,14 +1,13 @@
 package ec.edu.espol.workshops.second;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Main {
-	
-	public Main() {
-		
-	}
-
 	public static void main(String[] args) {
+
+		Logger log = Logger.getLogger(Main.class.getName());
+
 		
 		log.fine("***CARLNSURANCE***");
 		
@@ -29,7 +28,7 @@ public class Main {
         log.fine("POSEE LICENCIA DE CONDUCIR (true/false): ");
         boolean license = sc.nextBoolean();
         
-        Carlnsurance ensure = new Carlnsurance(name, age, sex, estado, license);
+        CarInsurance ensure = new CarInsurance(name, age, sex, estado, license);
         
         log.fine("Su nombre es "+ensure.getName()+" y tiene "+String.valueOf(ensure.getAge())+", usted es "+ String.valueOf(ensure.getSex())+ " y su estado es "+ensure.getStatus());
         log.fine("Su seguro es de: "+  String.valueOf(ensure.getPremium()));
@@ -42,14 +41,10 @@ public class Main {
         	
         }else {
         	
-        	 if(ensure.getSex() == 'M' || ensure.getSex() == 'm' && ensure.getLicenseDriver()) {
-        		 if (ensure.getStatus().equals("not married")) {
-        			 if (ensure.getAge() < 25) {
-        				 log.fine("Se le aumentar� $1500 m�s a su seguro");
-        	             	ensure.setPremium(ensure.getPremium()+1500);
-        	             	log.fine("Su seguro ahora tiene un precio de: "+ensure.getPremium());
-        			 }
-        		 } 
+        	 if(ensure.getSex() == 'M' || ensure.getSex() == 'm' && ensure.getLicenseDriver() && ensure.getStatus().equals("not married") && ensure.getAge() < 25) {
+				 log.fine("Se le aumentar� $1500 m�s a su seguro");
+             	ensure.setPremium(ensure.getPremium()+1500);
+             	log.fine("Su seguro ahora tiene un precio de: "+ensure.getPremium());
         	 }
              else if (((ensure.getSex() == 'F' || ensure.getSex() == 'f') || ensure.getStatus().toLowerCase() == "married") && ensure.getLicenseDriver()) {
             	 log.fine("Se le restar� $200 a su seguro");
