@@ -1,7 +1,7 @@
 package ec.edu.espol.workshops.second;
 
 
-public class Carlnsurance {
+public class CarInsurance {
 	
 	private String name;
 	private int age;
@@ -10,7 +10,7 @@ public class Carlnsurance {
 	private int premium;
 	private boolean licenseDriver;
 	
-	public Carlnsurance(String name, int age, char sex, String status, boolean licenseDriver) {
+	public CarInsurance(String name, int age, char sex, String status, boolean licenseDriver) {
 		this.name = name;
 		this.age = age;
 		this.sex = sex;
