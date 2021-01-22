@@ -50,6 +50,11 @@ public class Main {
         	             	log.fine("Su seguro ahora tiene un precio de: "+ensure.getPremium());
         			 }
         		 } 
+			 else if(ensure.getAge() < 65 && ensure.getAge() > 45 && ensure.getLicenseDriver()) {
+			 	System.out.println("Se restara $100 al seguro");
+				 ensure.setPremium(ensure.getPremium()-100);
+				 System.out.println("Su seguro ahora tiene un precio de: " + ensure.getPremium());
+			 }
         	 }
              else if (((ensure.getSex() == 'F' || ensure.getSex() == 'f') || ensure.getStatus().toLowerCase() == "married") && ensure.getLicenseDriver()) {
             	 log.fine("Se le restar� $200 a su seguro");
